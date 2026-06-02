@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Service | Garage Door Geeks — Tampa Bay</title>
+<meta name="description" content="Book a garage door repair or installation appointment with Garage Door Geeks. Same-day service available across Tampa Bay.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.jpg" alt="Garage Door Geeks Logo" style="height:72px;width:auto;object-fit:contain;">
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="areas.html">Areas</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="book.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <a href="tel:6302588444" class="nav-phone">📞 (630) 258-8444</a>
+  <div class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Book a Service</span>
+    </div>
+    <div class="page-hero-label">Same-Day Appointments Available</div>
+    <h1 class="page-hero-title">Book Your<br><span class="accent">Service Online.</span></h1>
+    <p class="page-hero-sub">Select your service, review our policies, and schedule your appointment — all in under 3 minutes. 24/7 availability across Tampa Bay.</p>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking-section">
+  <div class="booking-container">
+
+    <!-- STEP PROGRESS TABS -->
+    <div class="booking-progress">
+      <div class="booking-step-tab active" data-tab="1">
+        <div class="step-num-badge">1</div>
+        <div class="step-tab-label">Select Service</div>
+      </div>
+      <div class="booking-step-tab" data-tab="2">
+        <div class="step-num-badge">2</div>
+        <div class="step-tab-label">Policies</div>
+      </div>
+      <div class="booking-step-tab" data-tab="3">
+        <div class="step-num-badge">3</div>
+        <div class="step-tab-label">Your Details</div>
+      </div>
+      <div class="booking-step-tab" data-tab="4">
+        <div class="step-num-badge">✓</div>
+        <div class="step-tab-label">Confirmed</div>
+      </div>
+    </div>
+
+    <!-- FORM PANEL -->
+    <div class="booking-panel" id="booking-panel">
+
+      <!-- STEP 1: SERVICE SELECTION -->
+      <div class="booking-step-content active" data-step="1">
+        <div class="booking-panel-title">Select Your Service</div>
+        <p class="booking-panel-sub">Choose the service you need below. Prices shown are flat-rate — no hidden fees.</p>
+
+        <div id="service-option-grid" class="service-select-grid">
+          <!-- Populated by scripts.js -->
+        </div>
+
+        <div class="price-summary-bar" id="price-summary">
+          <div>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;">Selected Service</div>
+            <div class="price-summary-service"></div>
+          </div>
+          <div class="price-summary-amount"></div>
+        </div>
+
+        <div class="booking-nav">
+          <div></div>
+          <button class="btn-next" id="step1-next" disabled onclick="goToStep(2)">Continue → Policies</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: DISCLAIMERS -->
+      <div class="booking-step-content" data-step="2">
+        <div class="booking-panel-title">Review & Acknowledge</div>
+        <p class="booking-panel-sub">Please read and acknowledge both policies before scheduling your appointment.</p>
+
+        <div class="disclaimer-box">
+          <div class="disclaimer-title">📋 Pricing Notice</div>
+          <div class="disclaimer-body">
+            Online pricing applies to standard residential garage door systems and common repair scenarios. If additional issues are discovered during inspection, your technician will explain all options and pricing before any additional work is performed.
+          </div>
+          <label class="disclaimer-check">
+            <input type="checkbox" id="disc1" onchange="checkDisclaimers()">
+            <span class="disclaimer-check-text">I understand that pricing may vary if additional issues are discovered. I will be informed before any additional work is performed.</span>
+          </label>
+        </div>
+
+        <div class="disclaimer-box">
+          <div class="disclaimer-title">📅 Service Appointment Policy</div>
+          <div class="disclaimer-body">
+            Our upfront pricing model allows customers to know the cost before booking, which means appointments are scheduled as service visits rather than free estimates. Technicians arrive prepared to complete the requested work during your appointment.
+            <br><br>
+            <strong>If service is declined after arrival, a diagnostic fee of $79 will apply</strong> for the inspection and visit.
+          </div>
+          <label class="disclaimer-check">
+            <input type="checkbox" id="disc2" onchange="checkDisclaimers()">
+            <span class="disclaimer-check-text">I understand this is a service appointment, not a free estimate. I acknowledge the $79 diagnostic fee if service is declined after arrival.</span>
+          </label>
+        </div>
+
+        <div class="booking-nav">
+          <button class="btn-back" onclick="goToStep(1)">← Back</button>
+          <button class="btn-next" id="step2-next" disabled onclick="goToStep(3)">Continue → Your Details</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: PERSONAL DETAILS -->
+      <div class="booking-step-content" data-step="3">
+        <div class="booking-panel-title">Your Details</div>
+        <p class="booking-panel-sub">Fill in your contact information and preferred appointment time.</p>
+
+        <form onsubmit="submitBooking(event)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">First Name *</label>
+              <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lname">Last Name *</label>
+              <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number *</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(813) 555-0100" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="john@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="address">Service Address *</label>
+            <input class="form-input" type="text" id="address" name="address" placeholder="123 Main Street, Wesley Chapel, FL 33544" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="pref-date">Preferred Date *</label>
+              <input class="form-input" type="date" id="pref-date" name="pref-date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pref-time">Preferred Time *</label>
+              <select class="form-select" id="pref-time" name="pref-time" required>
+                <option value="">Select a time window</option>
+                <option>8:00 AM – 10:00 AM</option>
+                <option>10:00 AM – 12:00 PM</option>
+                <option>12:00 PM – 2:00 PM</option>
+                <option>2:00 PM – 4:00 PM</option>
+                <option>4:00 PM – 6:00 PM</option>
+                <option>6:00 PM – 8:00 PM (Evening)</option>
+                <option>Emergency / ASAP</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="notes">Additional Notes</label>
+            <textarea class="form-textarea" id="notes" name="notes" placeholder="Anything else we should know? (e.g. gate code, specific issue description, access instructions)"></textarea>
+          </div>
+
+          <div class="booking-nav">
+            <button type="button" class="btn-back" onclick="goToStep(2)">← Back</button>
+            <button type="submit" class="btn-next">✓ Confirm Booking</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- STEP 4: SUCCESS -->
+      <div class="booking-step-content" data-step="4">
+        <div class="booking-success-screen">
+          <div class="success-circle">✓</div>
+          <div class="success-title">Booking Received!</div>
+          <p class="success-sub">
+            Thank you — we've received your service request. A member of our team will call or text you within <strong>60 minutes</strong> to confirm your appointment time.
+            <br><br>
+            For urgent jobs, call us directly at <a href="tel:6302588444" style="color:var(--lime);font-weight:700;">(630) 258-8444</a> — we're available 24/7.
+          </p>
+          <a href="index.html" class="btn-primary">← Back to Home</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- END BOOKING PANEL -->
+
+    <!-- TRUST BAR BELOW FORM -->
+    <div style="display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:36px;padding:28px;background:var(--white);border:1px solid var(--border);">
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--lime);">24/7</div>
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);">Emergency Available</div>
+      </div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--lime);">Flat Rate</div>
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);">No Hidden Fees</div>
+      </div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--lime);">Same Day</div>
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);">Appointments</div>
+      </div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--lime);">All Brands</div>
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);">Serviced</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="assets/logo.jpg" alt="Garage Door Geeks" style="height:90px;width:auto;margin-bottom:12px;display:block;">
+      <div class="footer-tagline">Garage doors the smart way.</div>
+      <a href="tel:6302588444" class="footer-contact-item"><span class="footer-contact-dot"></span> (630) 258-8444</a>
+      <a href="mailto:tim@thedoorgeeks.com" class="footer-contact-item"><span class="footer-contact-dot"></span> tim@thedoorgeeks.com</a>
+      <div class="footer-contact-item"><span class="footer-contact-dot"></span> Wesley Chapel, FL</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="service-garage-door-repair.html">Garage Door Repair</a></li>
+        <li><a href="service-spring-replacement.html">Spring Replacement</a></li>
+        <li><a href="service-opener-installation.html">Opener Installation</a></li>
+        <li><a href="service-new-door-installation.html">New Door Installation</a></li>
+        <li><a href="service-cable-replacement.html">Cable Replacement</a></li>
+        <li><a href="service-emergency.html">Emergency Service</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="areas.html#wesley-chapel">Wesley Chapel</a></li>
+        <li><a href="areas.html#lutz">Lutz</a></li>
+        <li><a href="areas.html#land-o-lakes">Land O Lakes</a></li>
+        <li><a href="areas.html#new-tampa">New Tampa</a></li>
+        <li><a href="areas.html#tampa">Tampa</a></li>
+        <li><a href="areas.html#temple-terrace">Temple Terrace</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Garage Door Geeks. All rights reserved. | thedoorgeeks.com</div>
+    <div class="footer-emergency">
+      <div class="emergency-dot"></div>
+      <div class="emergency-text">24/7 Emergency Line: (630) 258-8444</div>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

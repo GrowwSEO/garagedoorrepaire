@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Garage Door Geeks — Before & After</title>
+<meta name="description" content="See our work — before and after photos of garage door repairs, spring replacements, opener installations, and new door installations across Tampa Bay.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.jpg" alt="Garage Door Geeks Logo" style="height:72px;width:auto;object-fit:contain;">
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="areas.html">Areas</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="book.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <a href="tel:6302588444" class="nav-phone">📞 (630) 258-8444</a>
+  <div class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Gallery</span>
+    </div>
+    <div class="page-hero-label">Our Work</div>
+    <h1 class="page-hero-title">Before &<br><span class="accent">After.</span></h1>
+    <p class="page-hero-sub">Real jobs, real results. See the quality of our work on spring replacements, opener installs, new door installations, and repairs across Tampa Bay.</p>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-section">
+  <div class="section-label">Project Gallery</div>
+  <h2 class="section-title">Recent<br><span class="accent">Completed Jobs.</span></h2>
+  <p class="section-subtitle">Photos from our team's recent work across Wesley Chapel, Lutz, Land O Lakes, and greater Tampa Bay.</p>
+
+  <!-- FILTER BUTTONS -->
+  <div class="gallery-filter">
+    <button class="filter-btn active" onclick="filterGallery('all', this)">All Work</button>
+    <button class="filter-btn" onclick="filterGallery('spring', this)">Spring Jobs</button>
+    <button class="filter-btn" onclick="filterGallery('opener', this)">Opener Installs</button>
+    <button class="filter-btn" onclick="filterGallery('door', this)">New Doors</button>
+    <button class="filter-btn" onclick="filterGallery('repair', this)">Repairs</button>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <div class="gallery-item" data-category="spring">
+      <div class="gallery-tag">Spring</div>
+      <div class="gallery-placeholder-icon">🌀</div>
+      <div class="gallery-placeholder-text">Spring Replacement — Wesley Chapel</div>
+      <div class="gallery-label">Two Spring Replacement — Wesley Chapel, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="opener">
+      <div class="gallery-tag">Opener</div>
+      <div class="gallery-placeholder-icon">⚙️</div>
+      <div class="gallery-placeholder-text">LiftMaster 6690 Install — Lutz</div>
+      <div class="gallery-label">LiftMaster 6690 Smart Opener — Lutz, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="door">
+      <div class="gallery-tag">New Door</div>
+      <div class="gallery-placeholder-icon">🚪</div>
+      <div class="gallery-placeholder-text">New Door Install — Land O Lakes</div>
+      <div class="gallery-label">New Clopay Steel Door Installation — Land O Lakes, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="repair">
+      <div class="gallery-tag">Repair</div>
+      <div class="gallery-placeholder-icon">🔧</div>
+      <div class="gallery-placeholder-text">Off-Track Repair — New Tampa</div>
+      <div class="gallery-label">Major Off-Track Repair — New Tampa, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="spring">
+      <div class="gallery-tag">Spring</div>
+      <div class="gallery-placeholder-icon">🌀</div>
+      <div class="gallery-placeholder-text">Single Spring — Tampa</div>
+      <div class="gallery-label">Single Spring Replacement — Tampa, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="opener">
+      <div class="gallery-tag">Opener</div>
+      <div class="gallery-placeholder-icon">📱</div>
+      <div class="gallery-placeholder-text">Smart Opener Upgrade — Wesley Chapel</div>
+      <div class="gallery-label">LiftMaster Smart Opener Upgrade — Wesley Chapel, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="repair">
+      <div class="gallery-tag">Repair</div>
+      <div class="gallery-placeholder-icon">🔗</div>
+      <div class="gallery-placeholder-text">Cable Replacement — Lutz</div>
+      <div class="gallery-label">Cable + Bottom Bracket — Lutz, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="door">
+      <div class="gallery-tag">New Door</div>
+      <div class="gallery-placeholder-icon">🏠</div>
+      <div class="gallery-placeholder-text">Carriage Style Door — Temple Terrace</div>
+      <div class="gallery-label">Wayne Dalton Carriage Door — Temple Terrace, FL</div>
+    </div>
+
+    <div class="gallery-item" data-category="repair">
+      <div class="gallery-tag">Repair</div>
+      <div class="gallery-placeholder-icon">🔩</div>
+      <div class="gallery-placeholder-text">Roller Replacement — Seffner</div>
+      <div class="gallery-label">10 Roller Replacement — Seffner, FL</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:56px;padding:40px;background:var(--light-gray);border:1px solid var(--border);">
+    <div style="font-size:40px;margin-bottom:16px;">📸</div>
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:900;text-transform:uppercase;color:var(--text-primary);margin-bottom:8px;">More Photos Coming Soon</div>
+    <p style="font-size:15px;color:var(--text-secondary);max-width:480px;margin:0 auto 24px;line-height:1.7;">We're adding photos from our latest jobs regularly. Follow us and check back soon for more before-and-after transformations.</p>
+    <a href="book.html" class="btn-primary">📅 Book Your Service</a>
+  </div>
+
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-left">
+    <div class="cta-band-title">Ready for Your<br>Transformation?</div>
+    <p class="cta-band-sub">Book a service and your job could be in our next gallery update.</p>
+  </div>
+  <div class="cta-band-right">
+    <a href="book.html" class="btn-dark">📅 Book an Appointment</a>
+    <a href="tel:6302588444" class="cta-phone">📞 (630) 258-8444</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="assets/logo.jpg" alt="Garage Door Geeks" style="height:90px;width:auto;margin-bottom:12px;display:block;">
+      <div class="footer-tagline">Garage doors the smart way.</div>
+      <a href="tel:6302588444" class="footer-contact-item"><span class="footer-contact-dot"></span> (630) 258-8444</a>
+      <a href="mailto:tim@thedoorgeeks.com" class="footer-contact-item"><span class="footer-contact-dot"></span> tim@thedoorgeeks.com</a>
+      <div class="footer-contact-item"><span class="footer-contact-dot"></span> Wesley Chapel, FL</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="service-garage-door-repair.html">Garage Door Repair</a></li>
+        <li><a href="service-spring-replacement.html">Spring Replacement</a></li>
+        <li><a href="service-opener-installation.html">Opener Installation</a></li>
+        <li><a href="service-new-door-installation.html">New Door Installation</a></li>
+        <li><a href="service-cable-replacement.html">Cable Replacement</a></li>
+        <li><a href="service-emergency.html">Emergency Service</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="areas.html#wesley-chapel">Wesley Chapel</a></li>
+        <li><a href="areas.html#lutz">Lutz</a></li>
+        <li><a href="areas.html#land-o-lakes">Land O Lakes</a></li>
+        <li><a href="areas.html#new-tampa">New Tampa</a></li>
+        <li><a href="areas.html#tampa">Tampa</a></li>
+        <li><a href="areas.html#temple-terrace">Temple Terrace</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Garage Door Geeks. All rights reserved. | thedoorgeeks.com</div>
+    <div class="footer-emergency"><div class="emergency-dot"></div><div class="emergency-text">24/7 Emergency Line: (630) 258-8444</div></div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.category === cat) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>
