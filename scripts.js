@@ -103,3 +103,20 @@ function submitBooking(e) {
 }
 
 document.addEventListener('DOMContentLoaded', initBooking);
+
+/* ── ACTIVE NAV STATE ── */
+document.addEventListener('DOMContentLoaded', function () {
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+
+  document.querySelectorAll('.nav-links > li > a').forEach(function (a) {
+    const href = a.getAttribute('href');
+    if (!href) return;
+
+    const isActive =
+      href === page ||
+      (page === '' && href === 'index.html') ||
+      (page.startsWith('service-') && href === 'services.html');
+
+    if (isActive) a.classList.add('active');
+  });
+});
