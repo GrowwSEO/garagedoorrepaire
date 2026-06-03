@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,7 +19,18 @@
     <img src="assets/logo.jpg" alt="Garage Door Geeks Logo" style="height:72px;width:auto;object-fit:contain;">
   </a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="services.html">Services</a></li>
+    <li class="nav-has-dropdown">
+      <a href="services.html">Services <span class="nav-arrow">▼</span></a>
+      <ul class="nav-dropdown">
+        <li><a href="service-garage-door-repair.html">Garage Door Repair</a></li>
+        <li><a href="service-spring-replacement.html">Spring Replacement</a></li>
+        <li><a href="service-opener-installation.html">Opener Installation</a></li>
+        <li><a href="service-new-door-installation.html">New Door Installation</a></li>
+        <li><a href="service-cable-replacement.html">Cable Replacement</a></li>
+        <li><a href="service-commercial.html">Commercial Doors</a></li>
+        <li><a href="service-emergency.html">24/7 Emergency</a></li>
+      </ul>
+    </li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="areas.html">Areas</a></li>
     <li><a href="about.html">About</a></li>
@@ -33,7 +44,7 @@
 </nav>
 
 <!-- EMERGENCY HERO — bolder, more urgent -->
-<section class="page-hero">
+<section class="page-hero has-image">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
     <div class="breadcrumb">
@@ -51,6 +62,10 @@
       <a href="tel:6302588444" class="btn-primary" style="font-size:20px;padding:18px 40px;">📞 Call (630) 258-8444</a>
       <a href="book.html" class="btn-secondary">📅 Book Online</a>
     </div>
+    </div>
+  <div class="page-hero-right-col">
+    <img src="assets/service-emergency.png" alt="Professional garage door service">
+    <div class="ph-overlay"></div>
   </div>
 </section>
 
@@ -117,6 +132,10 @@
   </div>
 
   <div class="service-sidebar">
+    <div class="service-img" style="position:relative;margin-bottom:24px;">
+      <img src="assets/service-emergency.png" alt="Emergency garage door repair service van at night" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;">
+      <div class="service-img-badge">24/7 Emergency Response</div>
+    </div>
     <div class="service-cta-box" style="background:var(--black);">
       <div class="service-cta-box-title" style="color:var(--lime);">Emergency Line</div>
       <p class="service-cta-box-sub" style="color:rgba(255,255,255,0.7);">Call or text 24/7. Real person, fast response. We're on our way.</p>

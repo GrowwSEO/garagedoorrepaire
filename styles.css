@@ -1,4 +1,4 @@
-﻿  :root {
+  :root {
     --lime: #6BA82E;
     --lime-dark: #4E8A1A;
     --lime-light: #8DC63F;
@@ -2426,24 +2426,25 @@
 
   .page-hero-right-col {
     position: relative;
-    overflow: hidden;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
   }
 
   .page-hero-right-col img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    max-width: 480px;
+    height: auto;
     display: block;
-    min-height: 540px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   }
 
   .page-hero-right-col .ph-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, var(--white) 0%, transparent 25%);
-    z-index: 1;
+    display: none;
   }
 
   .page-hero-right-stats {
